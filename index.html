@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地震學第一章：基礎導覽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+        body { font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif; }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-100 p-4 md:p-8 text-slate-900">
+
+    <div x-data="{ activeSection: 0 }" class="max-w-4xl mx-auto">
+        
+        <header class="mb-10 text-center">
+            <h1 class="text-4xl font-extrabold text-indigo-900 mb-4 flex items-center justify-center gap-3">
+                <i data-lucide="activity" class="w-10 h-10 text-indigo-600"></i>
+                地震學第一章：基礎導覽
+            </h1>
+            <p class="text-lg text-slate-600">你好！我是你的地震學導師。讓我們透過這份互動講義，精通地球的脈動。</p>
+        </header>
+
+        <main class="space-y-4">
+
+            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-slate-200">
+                <button @click="activeSection = (activeSection === 1 ? 0 : 1)" class="w-full flex items-center justify-between p-5 text-left hover:bg-slate-50 transition-colors">
+                    <div class="flex items-center gap-4">
+                        <div class="p-2 bg-indigo-100 rounded-lg text-indigo-600"><i data-lucide="activity"></i></div>
+                        <h3 class="text-xl font-bold text-slate-800">1. 地震學的研究範疇</h3>
+                    </div>
+                    <i :data-lucide="activeSection === 1 ? 'chevron-down' : 'chevron-right'" class="text-slate-400"></i>
+                </button>
+                <div x-show="activeSection === 1" x-cloak class="p-6 border-t border-slate-100 bg-white">
+                    <div class="space-y-4">
+                        <p class="text-gray-700 leading-relaxed">地震學是研究固體地球內部的<strong>彈性波（Elastic Waves）</strong>或聲波的科學。</p>
+                        <ul class="list-disc ml-6 space-y-2 text-gray-600">
+                            <li><strong>震源（Source）：</strong> 研究地震是怎麼發生的？斷層如何運動？</li>
+                            <li><strong>介質（Medium）：</strong> 研究波在地球內部傳播的路徑，進而推導出地殼結構。</li>
+                            <li><strong>接收器（Receiver）：</strong> 利用地震儀記錄地表的震動。</li>
+                        </ul>
+                        <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400 italic text-blue-800 text-sm">
+                            💡 教授比喻：地震學家就像「醫生」，地震波就是「超音波」，而地球就是「病人」。
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-slate-200">
+                <button @click="activeSection = (activeSection === 2 ? 0 : 2)" class="w-full flex items-center justify-between p-5 text-left hover:bg-slate-50">
+                    <div class="flex items-center gap-4">
+                        <div class="p-2 bg-indigo-100 rounded-lg text-indigo-600"><i data-lucide="map"></i></div>
+                        <h3 class="text-xl font-bold text-slate-800">2. 圖 1.1-1 至 1.1-5 解析</h3>
+                    </div>
+                    <i :data-lucide="activeSection === 2 ? 'chevron-down' : 'chevron-right'" class="text-slate-400"></i>
+                </button>
+                <div x-show="activeSection === 2" x-cloak class="p-6 border-t border-slate-100">
+                    <div class="space-y-6">
+                        <div class="border p-4 rounded-lg bg-white shadow-sm">
+                            <h4 class="font-bold text-lg mb-2 text-indigo-700">圖 1.1-1: 基本觀測概念</h4>
+                            <div class="flex justify-center my-4 bg-gray-50 p-4 rounded">
+                                <svg viewBox="0 0 400 150" class="w-full max-w-md">
+                                    <path d="M50,100 L350,100" stroke="#ccc" stroke-width="2" />
+                                    <circle cx="80" cy="100" r="10" fill="#ef4444" />
+                                    <text x="60" y="130" font-size="12">震源 (Source)</text>
+                                    <rect x="310" y="80" width="20" height="20" fill="#3b82f6" />
+                                    <text x="300" y="130" font-size="12">接收器 (Receiver)</text>
+                                    <path d="M90,100 Q200,50 310,100" stroke="#6366f1" fill="none" stroke-dasharray="5,5" />
+                                    <text x="180" y="60" font-size="12" fill="#6366f1">傳播路徑 (Path)</text>
+                                </svg>
+                            </div>
+                            <p class="text-sm text-gray-600">說明：展示震源產生的波經過介質傳遞到觀測站的基本架構。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-slate-200">
+                <button @click="activeSection = (activeSection === 3 ? 0 : 3)" class="w-full flex items-center justify-between p-5 text-left hover:bg-slate-50">
+                    <div class="flex items-center gap-4">
+                        <div class="p-2 bg-indigo-100 rounded-lg text-indigo-600"><i data-lucide="alert-triangle"></i></div>
+                        <h3 class="text-xl font-bold text-slate-800">3. Seismic Hazard vs. Risk</h3>
+                    </div>
+                    <i :data-lucide="activeSection === 3 ? 'chevron-down' : 'chevron-right'" class="text-slate-400"></i>
+                </button>
+                <div x-show="activeSection === 3" x-cloak class="p-6 border-t border-slate-100">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-orange-50 p-4 rounded-lg border border-orange-200">
+                            <h4 class="font-bold text-orange-800 flex items-center gap-2">危害 (Hazard)</h4>
+                            <p class="text-sm mt-2 text-orange-700">物理可能性（如斷層活動）。<br><em>例：花蓮 Hazard 高。</em></p>
+                        </div>
+                        <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                            <h4 class="font-bold text-red-800 flex items-center gap-2">風險 (Risk)</h4>
+                            <p class="text-sm mt-2 text-red-700">造成的損失（與人口建築有關）。<br><em>例：台北 Risk 高。</em></p>
+                        </div>
+                    </div>
+                    <p class="text-center font-bold text-indigo-800 mt-4">Risk = Hazard × Exposure × Vulnerability</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-slate-200">
+                <button @click="activeSection = (activeSection === 4 ? 0 : 4)" class="w-full flex items-center justify-between p-5 text-left hover:bg-slate-50">
+                    <div class="flex items-center gap-4">
+                        <div class="p-2 bg-indigo-100 rounded-lg text-indigo-600"><i data-lucide="info"></i></div>
+                        <h3 class="text-xl font-bold text-slate-800">4. 地震波能量衰減的原因</h3>
+                    </div>
+                    <i :data-lucide="activeSection === 4 ? 'chevron-down' : 'chevron-right'" class="text-slate-400"></i>
+                </button>
+                <div x-show="activeSection === 4" x-cloak class="p-6 border-t border-slate-100">
+                    <ol class="list-decimal ml-6 space-y-3">
+                        <li><strong>幾何擴散：</strong> 能量隨距離擴散。像吹泡泡，泡泡越大膜越薄。</li>
+                        <li><strong>非彈性衰減：</strong> 岩石摩擦力將能量轉化為<strong>熱能</strong>。</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-slate-200">
+                <button @click="activeSection = (activeSection === 6 ? 0 : 6)" class="w-full flex items-center justify-between p-5 text-left hover:bg-slate-50">
+                    <div class="flex items-center gap-4">
+                        <div class="p-2 bg-indigo-100 rounded-lg text-indigo-600"><i data-lucide="building-2"></i></div>
+                        <h3 class="text-xl font-bold text-slate-800">6. 建材與高度對地震的反應</h3>
+                    </div>
+                    <i :data-lucide="activeSection === 6 ? 'chevron-down' : 'chevron-right'" class="text-slate-400"></i>
+                </button>
+                <div x-show="activeSection === 6" x-cloak class="p-6 border-t border-slate-100">
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full text-left border-collapse">
+                            <thead><tr class="bg-gray-100"><th class="p-2 border">建材</th><th class="p-2 border">耐震表現</th></tr></thead>
+                            <tbody>
+                                <tr><td class="p-2 border">木造</td><td class="p-2 border text-green-600 font-bold">優良</td></tr>
+                                <tr><td class="p-2 border">RC鋼筋混凝土</td><td class="p-2 border text-orange-600 font-bold">中等</td></tr>
+                                <tr><td class="p-2 border">磚石/土角厝</td><td class="p-2 border text-red-600 font-bold">極差</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-4 bg-yellow-50 p-4 rounded-lg">
+                        <h4 class="font-bold text-yellow-800 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4"></i> 共振效應</h4>
+                        <p class="text-sm">長周期波影響高樓；短周期波對矮房傷害大。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-slate-200">
+                <button @click="activeSection = (activeSection === 11 ? 0 : 11)" class="w-full flex items-center justify-between p-5 text-left hover:bg-slate-50">
+                    <div class="flex items-center gap-4">
+                        <div class="p-2 bg-indigo-100 rounded-lg text-indigo-600"><i data-lucide="shield-check"></i></div>
+                        <h3 class="text-xl font-bold text-slate-800">11. 監測核子試爆</h3>
+                    </div>
+                    <i :data-lucide="activeSection === 11 ? 'chevron-down' : 'chevron-right'" class="text-slate-400"></i>
+                </button>
+                <div x-show="activeSection === 11" x-cloak class="p-6 border-t border-slate-100">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-3 bg-red-50 rounded border border-red-100">
+                            <h5 class="font-bold">核子爆炸 (Explosion)</h5>
+                            <p class="text-sm">向外推。<strong>P 波遠大於 S 波</strong>。</p>
+                        </div>
+                        <div class="p-3 bg-blue-50 rounded border border-blue-100">
+                            <h5 class="font-bold">天然地震 (Earthquake)</h5>
+                            <p class="text-sm">剪切運動。有大量 <strong>S 波和表面波</strong>。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <div class="mt-12 p-8 bg-indigo-900 text-white rounded-2xl shadow-xl">
+            <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                <i data-lucide="shield-check"></i> 本章學習總結
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-indigo-800/50 p-4 rounded-lg">
+                    <h4 class="font-bold mb-2">物理基礎</h4>
+                    <p class="text-sm opacity-80">理解波的傳播與衰減。</p>
+                </div>
+                <div class="bg-indigo-800/50 p-4 rounded-lg">
+                    <h4 class="font-bold mb-2">技術分析</h4>
+                    <p class="text-sm opacity-80">分辨天然地震與人工爆炸。</p>
+                </div>
+                <div class="bg-indigo-800/50 p-4 rounded-lg">
+                    <h4 class="font-bold mb-2">社會責任</h4>
+                    <p class="text-sm opacity-80">落實減災管理與耐震設計。</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-12 text-center text-slate-500 text-sm">
+            <p>© 地震學第一章：互動講義專案 | 讓地球科學變得更有趣</p>
+        </footer>
+    </div>
+
+    <script>
+        // 初始化 Lucide 圖標
+        lucide.createIcons();
+        
+        // 監聽 Alpine.js 變化以重新渲染圖標 (當手風琴展開時)
+        document.addEventListener('alpine:initialized', () => {
+            Alpine.effect(() => {
+                // 每當狀態改變時，手動觸發一次圖標更新
+                setTimeout(() => lucide.createIcons(), 10);
+            });
+        });
+    </script>
+</body>
+</html>
